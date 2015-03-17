@@ -1,4 +1,4 @@
 .*
-!/.gitignore
-!/.gitmodules
+!.gitignore
+log.txt
 *.pyc

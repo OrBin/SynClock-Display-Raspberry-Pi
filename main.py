@@ -4,6 +4,7 @@ import time
 import sys
 from Adafruit_7Segment import SevenSegment
 from Adafruit_LEDBackpack import LEDBackpack
+import logging
 
 segment = SevenSegment(address=0x70)
 led_disp = segment.disp
@@ -13,8 +14,9 @@ conf_file = open(CONFIG_FILE_NAME, "r")
 get_time_path = conf_file.read().strip()
 conf_file.close()
 
-print '-----'
-print 'Path to get time from: "%s"' % get_time_path
+logging.basicConfig(filename='log.txt',level=logging.INFO, format="%(asctime)s %(levelname)s %(module)s %(message)s", datefmt='%Y-%m-%d %H:%M:%S %Z')
+
+logging.info('Path to get time from: "%s"' % get_time_path)
 
 while True:
 	try:
@@ -34,17 +36,15 @@ while True:
 			segment.writeDigit(3, alarm_datetime.minute / 10)   
 			segment.writeDigit(4, alarm_datetime.minute % 10)   
 			segment.setColon(SevenSegment.ColonParts.RIGHT_COLON, True)
-			print 'Next alarm:', alarm_datetime
+			logging.info('Next alarm: %s', alarm_datetime)
 		else:
 			for digit in [0, 1, 3, 4]:
 				segment.writeDigitRaw(digit, 0b1000000)
 			segment.setColon(SevenSegment.ColonParts.RIGHT_COLON, False)
-			print 'No alarm for the next 24 hours'
-	except:
-		print 'Oh shit!'
-		print sys.exc_info()[0]
-                print sys.exc_info()
+			logging.info('No alarm for the next 24 hours')
+	except Exception, e:
+                logging.exception(e)
 		# Blink 7Segment
 		led_disp.setBlinkRate(2)
-		print 'Error, blinking'
+		logging.error('Error, blinking')
 	time.sleep(5)
