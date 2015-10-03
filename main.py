@@ -41,10 +41,12 @@ while True:
 			for digit in [0, 1, 3, 4]:
 				segment.writeDigitRaw(digit, 0b1000000)
 			segment.setColon(SevenSegment.ColonParts.RIGHT_COLON, False)
-			logging.info('No alarm for the next 24 hours')
+			logging.info('No alarm for the next 24 hours')		
+		time.sleep(5)
+	
 	except Exception, e:
                 logging.exception(e)
 		# Blink 7Segment
 		led_disp.setBlinkRate(2)
 		logging.error('Error, blinking')
-	time.sleep(5)
+		time.sleep(2.5)
