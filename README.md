@@ -1,7 +1,7 @@
-# Timely-Alarm-Clock-Display-Raspberry-Pi
-Display for the next Timely alarm clock in my phone.
+# Synchronized-Alarm-Clock-Display-Raspberry-Pi
+Display for the next alarm clock in my phone.
 
-This code displays the time of my next alarm in [Timely Alarm Clock](https://play.google.com/store/apps/details?id=ch.bitspin.timely), if it is in the next 24 hours.
+This code displays the time of my next alarm in my [Synchronized Alarm Clock](https://github.com/OrBin/Synchronized_DeskClock), if it is in the next 24 hours.
 This module only fetches the next alarm time from a server.
 
 
