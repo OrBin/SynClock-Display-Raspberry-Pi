@@ -1,8 +1,8 @@
-# Synchronized-Alarm-Clock-Display-Raspberry-Pi
+# SynClock-Display-Raspberry-Pi
 Display for the next alarm clock in my phone.
 
-This code displays the time of my next alarm in my [Synchronized Alarm Clock](https://github.com/OrBin/Synchronized_DeskClock), if it is in the next 24 hours.
-This module only fetches the next alarm time from a server.
+This code displays the time of my next alarm in my [Synchronized Alarm Clock](https://github.com/OrBin/SynClock), if it is in the next 24 hours.
+This module only fetches the next alarm time from a [server](https://github.com/OrBin/SynClock-Server).
 
 
 Requirements:
